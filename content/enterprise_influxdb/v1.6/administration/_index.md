@@ -13,7 +13,7 @@ menu:
 
 #### [Authentication and authorization](/influxdb/v1.6/administration/authentication_and_authorization/)
 
-See [Authentication and authorization](/influxdb/v1.6/administration/authentication_and_authorization/) in the InfluxDB OSS documentation for details on
+See [Authentication and authorization](/influxdb/v1.6/administration/authentication_and_authorization/) in the InfluxDB OSS documentation for details on:
 
 * how to
 [set up authentication](/influxdb/v1.6/administration/authentication_and_authorization/#set-up-authentication)
@@ -22,7 +22,7 @@ See [Authentication and authorization](/influxdb/v1.6/administration/authenticat
 [authenticate requests](/influxdb/v1.6/administration/authentication_and_authorization/#authenticate-requests) in InfluxDB.
 
 * descriptions of the different
-[user types](/influxdb/v1.6/administration/authentication_and_authorization/#user-types-and-privileges) and the InfluxQL for
+[user types](/influxdb/v1.6/administration/authentication_and_authorization/#user-types-and-privileges) and using InfluxQL for
 [managing database users](/influxdb/v1.6/administration/authentication_and_authorization/#user-management-commands).
 
 ## [Configuring LDAP authentication](/enterprise_influxdb/v1.6/administration/ldap/)

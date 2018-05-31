@@ -1,13 +1,11 @@
 ---
-title: About the project
+title: About the InfluxDB Enterprise project
 menu:
   enterprise_influxdb_1_6:
     weight: 10
 ---
 
-## [Release notes/changelog](/enterprise_influxdb/v1.6/about-the-project/release-notes-changelog/)
-
-
+## [Release notes](/enterprise_influxdb/v1.6/about-the-project/release-notes-changelog/)
 
 ## [Commercial license](https://www.influxdata.com/legal/slsa/)
 

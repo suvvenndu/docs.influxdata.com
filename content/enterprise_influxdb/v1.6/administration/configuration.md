@@ -925,6 +925,28 @@ The path of the unix domain socket.
 
 Environment variable: `INFLUXDB_HTTP_BIND_SOCKET`
 
+### `max-concurrent-write-limit = 0`
+
+The maximum number of writes processed concurrently.
+Default value of `0` disables the limit.
+
+Environment variable: `INFLUXDB_HTTP_MAX_CONCURRENT_WRITE_LIMIT`
+
+### `max-enqueued-write-limit = 0`
+
+The maximum number of writes queued for processing.
+Default value of `0` disables the limit.
+
+Environment variable: `INFLUXDB_HTTP_MAX_ENQUEUED_WRITE_LIMIT`
+
+### `enqueued-write-timeout = 0`
+
+The maximum duration for a write to wait in the queue to be processed.
+
+Default value of `0` disables the limit. If `max-concurrent-write-limit` is set to `0`, the `enqueued-write-timeout` is also disabled.
+
+Environment variable: `INFLUXDB_HTTP_ENQUEUED_WRITE_TIMEOUT`
+
 ## [[graphite]]
 
 See the [OSS documentation](/influxdb/v1.6/administration/config/#graphite-settings-graphite).

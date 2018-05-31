@@ -1,13 +1,13 @@
 ---
-title: Configuring LDAP authentication in InfluxDB Enterprise
-description: Configuring LDAP authentication in InfluxDB Enterprise, including steps for meta nodes and data nodes, and testing LDAP connectivity.
+title: Configuring LDAP authentication for InfluxDB Enterprise
+description: Configuring LDAP authentication for InfluxDB Enterprise, including steps for meta nodes and data nodes, and testing LDAP connectivity.
 menu:
   enterprise_influxdb_1_6:
     name: Configuring LDAP authentication
     weight: 40
     parent: Administration
 ---
-InfluxDB Enterprise can be configured to query a Lightweight Directory Access Protocol(LDAP)-compatible directory service for determining user permissions and to synchronize this directory service into InfluxDB so that the remote directory service does not need to be queried for each request.
+InfluxDB Enterprise can be configured to query a Lightweight Directory Access Protocol(LDAP)-compatible directory service to determine user permissions and to synchronize a directory service into InfluxDB so that the remote directory service does not need to be queried for each request.
 
 ## Requirements
 
@@ -16,13 +16,12 @@ To use LDAP with InfluxDB Enterprise, you need to support the following requirem
 * All users are managed in the remote LDAP service.
 
 
-
 ## Configuring the InfluxDB Enterprise configuration file
 
 To use LDAP with InfluxDB Enterprise, make the following changes to the InfluxDD Enterprise configuration:
 
 * Provide an HTTP Basic Authentication header. See [Authentication and authorization in InfluxDB](/influxdb/v1.6/administration/authentication_and_authorization/) for details on using HTTP Basic Authentication with InfluxDB.
-* Provide a username and password as HTTP query parameters
+* Provide a username and password using the following HTTP query parameters
   - `u`: username
   - `p`: password
 * Enable HTTP authentication.

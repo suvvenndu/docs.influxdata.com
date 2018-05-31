@@ -584,10 +584,32 @@ When a client sends data that exceeds the configured maximum size, a `413 Reques
 
 Environment variable: `INFLUXDB_HTTP_MAX_BODY_SIZE`
 
+### `max-concurrent-write-limit = 0`
+
+The maximum number of writes processed concurrently.
+Default value of `0` disables the limit.
+
+Environment variable: `INFLUXDB_HTTP_MAX_CONCURRENT_WRITE_LIMIT`
+
+### `max-enqueued-write-limit = 0`
+
+The maximum number of writes queued for processing.
+Default value of `0` disables the limit.
+
+Environment variable: `INFLUXDB_HTTP_MAX_ENQUEUED_WRITE_LIMIT`
+
+### `enqueued-write-timeout = 0`
+
+The maximum duration for a write to wait in the queue to be processed.
+
+Default value of `0` disables the limit. If `max-concurrent-write-limit` is set to `0`, the `enqueued-write-timeout` is also disabled.
+
+Environment variable: `INFLUXDB_HTTP_ENQUEUED_WRITE_TIMEOUT`
+
 
 ## IFQL settings `[ifql]`
 
-Configures the ifql RPC API.
+Configures the Influx Query Language RPC API.
 
 ### `enabled = true`
 
