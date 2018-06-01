@@ -50,7 +50,9 @@ Use with `-import`.
 
 #### [ `-consistency '{ any | one | quorum | all }'` ]
 
-Set the write consistency level.
+Set the write consistency level. Default value is `all`.
+
+To see the current value, run the [`settings` command](#settings).
 
 #### [ `-database '<db-name>'` ]
 
@@ -66,6 +68,8 @@ See [Executing an InfluxQL command and quitting using `execute` ](/influxdb/v1.6
 
 Format of the server responses.
 
+To see the current value, run the [`settings` command](#settings).
+
 See [Specifying the server response format using `-format`](/influxdb/v1.6/tools/shell/#specify-the-format-of-the-server-responses-with-format) for an example showing the use of this option and the differences in outputs.
 
 #### `-help`, `--help`
@@ -76,6 +80,8 @@ Displays the CLI help for usage of `influx` command line interface.
 
 Host for `influx` to connect to.
 Default value is `localhost`.
+
+To see the current value, run the [`settings` command](#settings).
 
 #### `-import`
 
@@ -107,6 +113,8 @@ Use with `-import`.
 The port number to which `influx` connects.
 Default value is `8086`.
 
+To see the current value, run the [`settings` command](#settings).
+
 #### `-pps '<number-of-points>'`
 
 Number of points per second the import allows.
@@ -134,7 +142,9 @@ Valid values and usage limitations:
 
 Enables pretty print for the `json` format.
 
-#### `socket '<UNIX-domain-socket>'`
+To see the current value, run the [`settings` command](#settings).
+
+#### `-socket '<UNIX-domain-socket>'`
 
 UNIX domain socket to connect to.
 
@@ -151,6 +161,8 @@ Disables SSL verification when connecting to the cluster using HTTPS.
 Username for connecting to the server. Use with `-password` option.
 
 Alternatively, set the username for the CLI with the `INFLUX_USERNAME` environment variable.
+
+To see the current value, run the [`settings` command](#settings).
 
 #### `-version`
 
@@ -356,39 +368,45 @@ The `influx` username and password can also be set using:
 Enables or disables chunked responses from the server when issuing queries.
 Default is enabled.
 
+To see the current value, run the [`settings` command](#settings).
+
 #### `chunk size <size>`
 
 Sets the size of the chunked responses.
 The default value is `10000`.
 Setting the value to `0` resets the chunk size to the default value.
 
-#### `clear { database | db | retention policy | rp }`
+To see the current value, run the [`settings` command](#settings).
+
+#### `clear '{ database | db | retention policy | rp }'`
 
 Clears the current context for the [database](/influxdb/v1.6/concepts/glossary/#database) or [retention policy](/influxdb/v1.6/concepts/glossary/#retention-policy-rp).
 
-#### `connect <host:port>`
+#### `connect '<host:port>'`
 
 Connect to a different server without exiting the shell.
 By default, `influx` connects to `localhost:8086`.
 If you do not specify either the host or the port, `influx` assumes the default setting for the missing attribute.
 
-#### `consistency <level>`
+#### `consistency '<level>'`
 
 Sets the write consistency level: `any`, `one`, `quorum`, or `all`.
 
 #### `Ctrl+C`
 
-Terminates the currently running query. Useful when an interactive query is taking too long to respond
-because it is trying to return too much data.
+Terminates the currently running query. Useful when an interactive query is taking too long to respond because it is trying to return too much data.
 
 #### `exit` | `quit` | `Ctrl+D`
 
 Quits the `influx` shell.
 
-#### `format <format>`
+#### `format { json | csv | column }`
 
-Specifies the format of the server responses: `json`, `csv`, or `column`.
-See the description of [-format](/influxdb/v1.6/tools/shell/#specify-the-format-of-the-server-responses-with-format) for examples of each format.
+Specifies the format of the server responses. Valid values are `json`, `csv`, or `column`. Default value is `column`.
+
+To see the current value, run the [`settings` command](#settings).
+
+See  [Specifying the server response format using `-format`](/influxdb/v1.6/tools/shell/#specifying-the-server-response-format-using-format) for examples of each format.
 
 #### `history`
 
@@ -410,14 +428,19 @@ Precision defaults to nanoseconds.
 
 Turns on pretty print for the `json` format.
 
+To see the current value, run the [`settings` command](#settings).
+
 #### `settings`
 
 Outputs the current settings for the shell including the `Host`, `Username`, `Database`, `Retention Policy`, `Pretty` status, `Chunked` status, `Chunk Size`, `Format`, and `Write Consistency`.
 
-`use [ "<database_name>" | "<database_name>"."<retention policy_name>" ]`
+#### `use "<db_name>" | "<db_name>"."<rp_name>" ]`
+
 Sets the current [database](/influxdb/v1.6/concepts/glossary/#database) and/or [retention policy](/influxdb/v1.6/concepts/glossary/#retention-policy-rp).
 Once `influx` sets the current database and/or retention policy, there is no need to specify that database and/or retention policy in queries.
 If you do not specify the retention policy, `influx` automatically queries the `use`d database's `DEFAULT` retention policy.
+
+To see the current values for database and retention policy, run the [`settings` command](#settings).
 
 ### Writing data to InfluxDB using `insert`
 
@@ -440,6 +463,12 @@ Using retention policy oneday
 
 ## Queries
 
-Execute all InfluxQL queries in `influx`.
+Influx Query Language (InfluxQL) queries can be executed directly using the `influx` CLI shell prompt or by using the `influx -execute '<command>'` option.
 
-See [Data exploration](/influxdb/v1.6/query_language/data_exploration/), [Schema exploration](/influxdb/v1.6/query_language/schema_exploration/), [Database management](/influxdb/v1.6/query_language/database_management/), [Authentication and authorization](/influxdb/v1.6/administration/authentication_and_authorization/) for InfluxQL documentation.
+For more information on InfluxQL, see:
+
+* [Data exploration](/influxdb/v1.6/query_language/data_exploration/)
+* [Schema exploration](/influxdb/v1.6/query_language/schema_exploration/)
+* [Database management](/influxdb/v1.6/query_language/database_management/)
+* [Authentication and authorization](/influxdb/v1.6/administration/authentication_and_authorization/)
+* [InfluxQL reference](/influxdb/v1.6/query_language/spec/)
