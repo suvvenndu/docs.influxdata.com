@@ -140,9 +140,9 @@ The table below outlines the default relationship between the `DURATION` of an R
 
 
 Users can also configure the shard group duration with the
-[`CREATE RETENTION POLICY`](/influxdb/v1.6/query_language/database_management/#create-retention-policies-with-create-retention-policy)
+[`CREATE RETENTION POLICY`](/influxdb/v1.6/administration/database_management/#create-retention-policies-with-create-retention-policy)
 and
-[`ALTER RETENTION POLICY`](/influxdb/v1.6/query_language/database_management/#modify-retention-policies-with-alter-retention-policy)
+[`ALTER RETENTION POLICY`](/influxdb/v1.6/administration/database_management/#modify-retention-policies-with-alter-retention-policy)
 statements.
 Check your retention policy's shard group duration with the
 [`SHOW RETENTION POLICIES`](/influxdb/v1.6/query_language/schema_exploration/#show-retention-policies)
@@ -696,7 +696,7 @@ name: fleeting
 time			               count
 1970-01-01T00:00:00Z	 8
 ```
-We [create](/influxdb/v1.6/query_language/database_management/#create-retention-policies-with-create-retention-policy) a new `DEFAULT` RP (`two_hour`) and perform the same query:
+We [create](/influxdb/v1.6/administration/database_management/#create-retention-policies-with-create-retention-policy) a new `DEFAULT` RP (`two_hour`) and perform the same query:
 ```bash
 > SELECT count(flounders) FROM fleeting
 >
@@ -906,9 +906,9 @@ InfluxDB maintains an in-memory index of every [series](/influxdb/v1.6/concepts/
 ## How can I remove series from the index?
 
 To reduce series cardinality, series must be dropped from the index.
-[`DROP DATABASE`](/influxdb/v1.6/query_language/database_management/#delete-a-database-with-drop-database),
-[`DROP MEASUREMENT`](/influxdb/v1.6/query_language/database_management/#delete-measurements-with-drop-measurement), and
-[`DROP SERIES`](/influxdb/v1.6/query_language/database_management/#drop-series-from-the-index-with-drop-series) will all remove series from the index and reduce the overall series cardinality.
+[`DROP DATABASE`](/influxdb/v1.6/administration/database_management/#delete-a-database-with-drop-database),
+[`DROP MEASUREMENT`](/influxdb/v1.6/administration/database_management/#delete-measurements-with-drop-measurement), and
+[`DROP SERIES`](/influxdb/v1.6/administration/database_management/#drop-series-from-the-index-with-drop-series) will all remove series from the index and reduce the overall series cardinality.
 
 > **Note:** `DROP` commands are usually CPU-intensive, as they frequently trigger a TSM compaction. Issuing `DROP` queries at a high frequency may significantly impact write and other query throughput.
 
@@ -1100,7 +1100,7 @@ For users who want to write sparse, historical data to InfluxDB, we recommend:
 First, lengthening your [retention policy](/influxdb/v1.6/concepts/glossary/#retention-policy-rp)‘s [shard group](/influxdb/v1.6/concepts/glossary/#shard-group) duration to cover several years.
 The default shard group duration is one week and if your data cover several hundred years – well, that’s a lot of shards!
 Having an extremely high number of shards is inefficient for InfluxDB.
-Increase the shard group duration for your data’s retention policy with the [`ALTER RETENTION POLICY` query](/influxdb/v1.6/query_language/database_management/#modify-retention-policies-with-alter-retention-policy).
+Increase the shard group duration for your data’s retention policy with the [`ALTER RETENTION POLICY` query](/influxdb/v1.6/administration/database_management/#modify-retention-policies-with-alter-retention-policy).
 
 Second, temporarily lowering the [`cache-snapshot-write-cold-duration` configuration setting](/influxdb/v1.6/administration/config/#cache-snapshot-write-cold-duration-10m).
 If you’re writing a lot of historical data, the default setting (`10m`) can cause the system to hold all of your data in cache for every shard.

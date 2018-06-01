@@ -14,7 +14,7 @@ If you're looking for less formal documentation, see the following:
 
 * [Data exploration using InfluxQL](/influxdb/v1.6/query_language/data_exploration/)
 * [Schema exploration using InfluxQL](/influxdb/v1.6/query_language/schema_exploration/)
-* [Database management](/influxdb/v1.6/query_language/database_management/)
+* [Database management](/influxdb/v1.6/administration/database_management/)
 * [Authentication and authorization](/influxdb/v1.6/administration/authentication_and_authorization/).
 
 InfluxQL is a SQL-like query language for interacting with InfluxDB.
@@ -425,7 +425,7 @@ CREATE RETENTION POLICY "10m.events" ON "somedb" DURATION 60m REPLICATION 2 SHAR
 
 ### CREATE SUBSCRIPTION
 
-Subscriptions tell InfluxDB to send all the data it receives to [Kapacitor](https://docs.influxdata.com/kapacitor/v1.5/introduction/).
+Subscriptions tell InfluxDB to send all the data it receives to [Kapacitor](https://docs.influxdata.com/kapacitor/v1.6/introduction/).
 
 ```
 create_subscription_stmt = "CREATE SUBSCRIPTION" subscription_name "ON" db_name "." retention_policy "DESTINATIONS" ("ANY"|"ALL") host { "," host} .

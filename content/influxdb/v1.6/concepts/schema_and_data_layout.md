@@ -150,7 +150,7 @@ By default, the shard group duration is determined by the RP's [duration](/influ
 | > 6 months  | 7 days  |
 
 The shard group duration is also configurable per RP.
-See [Retention Policy Management](/influxdb/v1.6/query_language/database_management/#retention-policy-management) for how to configure the
+See [Retention Policy Management](/influxdb/v1.6/administration/database_management/#retention-policy-management) for how to configure the
 shard group duration.
 
 ## Shard group duration recommendations
@@ -163,7 +163,7 @@ If your RP's duration is greater than six months, there's no need to have a shor
 In fact, increasing the shard group duration beyond the default seven day value can improve compression, improve write speed, and decrease the fixed iterator overhead per shard group.
 Shard group durations of 50 years and over, for example, are acceptable configurations.
 
-> **Note:** Note that `INF` (infinite) is not a valid duration [when configuring](/influxdb/v1.6/query_language/database_management/#retention-policy-management)
+> **Note:** Note that `INF` (infinite) is not a valid duration [when configuring](/influxdb/v1.6/administration/database_management/#retention-policy-management)
 the shard group duration.
 As a workaround, specify a `1000w` duration to achieve an extremely long shard group
 duration.

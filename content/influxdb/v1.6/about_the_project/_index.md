@@ -1,7 +1,7 @@
 ---
 title: About the project
 alias:
-  -/docs/v1.5/about/
+  -/docs/v1.6/about/
 menu:
   influxdb_1_6:
     weight: 10

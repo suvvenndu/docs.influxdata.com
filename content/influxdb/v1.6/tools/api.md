@@ -173,7 +173,7 @@ $ curl -XPOST 'http://localhost:8086/query' --data-urlencode 'q=CREATE DATABASE 
 {"results":[{"statement_id":0}]}
 ```
 
-A successful [`CREATE DATABASE` query](/influxdb/v1.6/query_language/database_management/#create-database) returns no additional information.
+A successful [`CREATE DATABASE` query](/influxdb/v1.6/administration/database_management/#create-database) returns no additional information.
 
 ### Query String Parameters
 
@@ -253,7 +253,7 @@ $ curl -XPOST 'http://localhost:8086/query?u=myusername&p=mypassword' --data-url
 {"results":[{"statement_id":0}]}
 ```
 
-A successful [`CREATE DATABASE` query](/influxdb/v1.6/query_language/database_management/#create-database) returns no additional information.
+A successful [`CREATE DATABASE` query](/influxdb/v1.6/administration/database_management/#create-database) returns no additional information.
 
 Invalid credentials:
 ```
@@ -271,7 +271,7 @@ $ curl -XPOST -u myusername:mypassword 'http://localhost:8086/query' --data-urle
 {"results":[{"statement_id":0}]}
 ```
 
-A successful [`CREATE DATABASE` query](/influxdb/v1.6/query_language/database_management/#create-database) returns no additional information.
+A successful [`CREATE DATABASE` query](/influxdb/v1.6/administration/database_management/#create-database) returns no additional information.
 
 Invalid credentials:
 ```

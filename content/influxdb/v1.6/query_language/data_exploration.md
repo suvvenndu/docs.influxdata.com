@@ -1744,7 +1744,7 @@ The query above writes all data in the `NOAA_water_database` and `autogen` reten
 
 The [backreference](#example-5-write-aggregated-results-for-more-than-one-measurement-to-a-different-database-downsampling-with-backreferencing) syntax (`:MEASUREMENT`) maintains the source measurement names in the destination database.
 Note that both the `copy_NOAA_water_database` database and its `autogen` retention policy must exist prior to running the `INTO` query.
-See [Database Management](/influxdb/v1.6/query_language/database_management/)
+See [Database Management](/influxdb/v1.6/administration/database_management/)
 for how to manage databases and retention policies.
 
 The `GROUP BY *` clause [preserves tags](#issue-1-missing-data) in the source database as tags in the destination database.
@@ -1833,7 +1833,7 @@ InfluxDB writes the data to the `where_else` database and to the `autogen`
 retention policy.
 Note that both `where_else` and `autogen` must exist prior to running the `INTO`
 query.
-See [Database Management](/influxdb/v1.6/query_language/database_management/)
+See [Database Management](/influxdb/v1.6/administration/database_management/)
 for how to manage databases and retetion policies.
 
 The response shows the number of points (`7605`) that InfluxDB writes to `h2o_feet_copy_2`.
@@ -1920,7 +1920,7 @@ in the `FROM` clause and writes the results to measurements with the same name i
 `where_else` database and the `autogen` retention policy.
 Note that both `where_else` and `autogen` must exist prior to running the `INTO`
 query.
-See [Database Management](/influxdb/v1.6/query_language/database_management/)
+See [Database Management](/influxdb/v1.6/administration/database_management/)
 for how to manage databases and retention policies.
 
 The response shows the number of points (`5`) that InfluxDB writes to the `where_else`

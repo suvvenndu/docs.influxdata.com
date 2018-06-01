@@ -2,7 +2,7 @@
 title: Database management using InfluxQL
 description: Use InfluxQL administrative commands for InfluxDB databases, retention policies, series, measurements, and shards.
 aliases:
-  - /influxdb/v1.6/query_language/database_management/
+  - /influxdb/v1.6/administration/database_management/
 menu:
   influxdb_1_6:
     name: Data management
@@ -69,7 +69,7 @@ CREATE DATABASE <db_name> [WITH [DURATION <duration>] [REPLICATION <n>] [SHARD D
 The `WITH`, `DURATION`, `REPLICATION`, `SHARD DURATION`, and `NAME` clauses are optional and create a single [retention policy](/influxdb/v1.6/concepts/glossary/#retention-policy-rp) associated with the created database.
 If you do not specify one of the clauses after `WITH`, the relevant behavior defaults to the `autogen` retention policy settings.
 The created retention policy automatically serves as the database's default retention policy.
-For more information about those clauses, see [Retention Policy Management](/influxdb/v1.6/query_language/database_management/#retention-policy-management).
+For more information about those clauses, see [Retention Policy Management](/influxdb/v1.6/administration/database_management/#retention-policy-management).
 
 A successful `CREATE DATABASE` query returns an empty result.
 If you attempt to create a database that already exists, InfluxDB does nothing and does not return an error.
@@ -124,7 +124,7 @@ and it drops the series from the index.
 
 > **Note:** `DROP SERIES` does not support time intervals in the `WHERE` clause.
 See
-[`DELETE`](/influxdb/v1.6/query_language/database_management/#delete-series-with-delete)
+[`DELETE`](/influxdb/v1.6/administration/database_management/#delete-series-with-delete)
 for that functionality.
 
 The statement takes the following form, where you must specify either the `FROM` clause or the `WHERE` clause:
@@ -158,7 +158,7 @@ A successful `DROP SERIES` query returns an empty result.
 The `DELETE` query deletes all points from a
 [series](/influxdb/v1.6/concepts/glossary/#series) in a database.
 Unlike
-[`DROP SERIES`](/influxdb/v1.6/query_language/database_management/#drop-series-from-the-index-with-drop-series), it does not drop the series from the index and it supports time intervals
+[`DROP SERIES`](/influxdb/v1.6/administration/database_management/#drop-series-from-the-index-with-drop-series), it does not drop the series from the index and it supports time intervals
 in the `WHERE` clause.
 
 The query takes the following form where you must include either the `FROM`
@@ -266,7 +266,7 @@ If you attempt to create a retention policy identical to one that already exists
 If you attempt to create a retention policy with the same name as an existing retention policy but with differing attributes, InfluxDB returns an error.
 
 > **Note:** You can also specify a new retention policy in the `CREATE DATABASE` query.
-See [Create a database with CREATE DATABASE](/influxdb/v1.6/query_language/database_management/#create-database).
+See [Create a database with CREATE DATABASE](/influxdb/v1.6/administration/database_management/#create-database).
 
 ##### `DURATION`
 

@@ -35,7 +35,7 @@ This guide will not go into detail about the syntax for creating and managing
 CQs and RPs.
 If you're new to both concepts, we recommend looking over the detailed
 [CQ documentation](/influxdb/v1.6/query_language/continuous_queries/) and
-[RP documentation](/influxdb/v1.6/query_language/database_management/#retention-policy-management).
+[RP documentation](/influxdb/v1.6/administration/database_management/#retention-policy-management).
 
 ### Sample data
 This section uses fictional real-time data that track the number of food orders
@@ -86,7 +86,7 @@ We make the `DEFAULT` RP keep data for two hours, because we want InfluxDB to
 automatically write the incoming ten-second resolution data to that RP.
 
 Use the
-[`CREATE RETENTION POLICY`](/influxdb/v1.6/query_language/database_management/#create-retention-policies-with-create-retention-policy)
+[`CREATE RETENTION POLICY`](/influxdb/v1.6/administration/database_management/#create-retention-policies-with-create-retention-policy)
 statement to create a `DEFAULT` RP:
 
 ```sql
@@ -117,7 +117,7 @@ Next we want to create another RP that keeps data for 52 weeks and is not the
 Ultimately, the 30-minute rollup data will be stored in this RP.
 
 Use the
-[`CREATE RETENTION POLICY`](/influxdb/v1.6/query_language/database_management/#create-retention-policies-with-create-retention-policy)
+[`CREATE RETENTION POLICY`](/influxdb/v1.6/administration/database_management/#create-retention-policies-with-create-retention-policy)
 statement to create a non-`DEFAULT` RP:
 
 ```sql
@@ -224,5 +224,5 @@ Using a combination of RPs and CQs, we've successfully set up our database to
 automatically keep the high precision raw data for a limited time, create lower
 precision data, and store that lower precision data for a longer period of time.
 Now that you have a general understanding of how these features can work
-together, we recommend looking at the detailed documentation on [CQs](/influxdb/v1.6/query_language/continuous_queries/) and [RPs](/influxdb/v1.6/query_language/database_management/#retention-policy-management)
+together, we recommend looking at the detailed documentation on [CQs](/influxdb/v1.6/query_language/continuous_queries/) and [RPs](/influxdb/v1.6/administration/database_management/#retention-policy-management)
 to see all that they can do for you.

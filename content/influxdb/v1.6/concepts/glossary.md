@@ -37,7 +37,7 @@ Related entries: [continuous query](/influxdb/v1.6/concepts/glossary/#continuous
 ## duration
 The attribute of the retention policy that determines how long InfluxDB stores data.
 Data older than the duration are automatically dropped from the database.
-See [Database Management](/influxdb/v1.6/query_language/database_management/#create-retention-policies-with-create-retention-policy) for how to set duration.
+See [Database Management](/influxdb/v1.6/administration/database_management/#create-retention-policies-with-create-retention-policy) for how to set duration.
 
 Related entries: [retention policy](/influxdb/v1.6/concepts/glossary/#retention-policy-rp)
 
@@ -134,7 +134,7 @@ Related entries: [point](/influxdb/v1.6/concepts/glossary/#point), [schema](/inf
 
 ## query
 An operation that retrieves data from InfluxDB.
-See [Data Exploration](/influxdb/v1.6/query_language/data_exploration/), [Schema Exploration](/influxdb/v1.6/query_language/schema_exploration/), [Database Management](/influxdb/v1.6/query_language/database_management/).
+See [Data Exploration](/influxdb/v1.6/query_language/data_exploration/), [Schema Exploration](/influxdb/v1.6/query_language/schema_exploration/), [Database Management](/influxdb/v1.6/administration/database_management/).
 
 ## replication factor
 The attribute of the retention policy that determines how many copies of the data are stored in the cluster.
@@ -150,7 +150,7 @@ The part of InfluxDB's data structure that describes for how long InfluxDB keeps
 RPs are unique per database and along with the measurement and tag set define a series.
 
 When you create a database, InfluxDB automatically creates a retention policy called `autogen` with an infinite duration, a replication factor set to one, and a shard group duration set to seven days.
-See [Database Management](/influxdb/v1.6/query_language/database_management/#retention-policy-management) for retention policy management.
+See [Database Management](/influxdb/v1.6/administration/database_management/#retention-policy-management) for retention policy management.
 
 <dt> Replication factors do not serve a purpose with single node instances.
 </dt>
@@ -236,7 +236,7 @@ Related entries: [series](/influxdb/v1.6/concepts/glossary/#series), [shard dura
 
 The shard duration determines how much time each shard group spans.
 The specific interval is determined by the `SHARD DURATION` of the retention policy.
-See [Retention Policy management](/influxdb/v1.6/query_language/database_management/#retention-policy-management) for more information.
+See [Retention Policy management](/influxdb/v1.6/administration/database_management/#retention-policy-management) for more information.
 
 For example, given a retention policy with `SHARD DURATION` set to `1w`, each shard group will span a single week and contain all points with timestamps in that week.
 

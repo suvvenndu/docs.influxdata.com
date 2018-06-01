@@ -190,7 +190,7 @@ Database management:
 &nbsp;&nbsp;&nbsp;◦&nbsp;&nbsp;&nbsp;`CREATE RETENTION POLICY`, `ALTER RETENTION POLICY`, and `DROP RETENTION POLICY`  
 &nbsp;&nbsp;&nbsp;◦&nbsp;&nbsp;&nbsp;`CREATE CONTINUOUS QUERY` and `DROP CONTINUOUS QUERY`  
 
-See the [database management](/influxdb/v1.6/query_language/database_management/) and [continuous queries](/influxdb/v1.6/query_language/continuous_queries/) pages for a complete discussion of the commands listed above.
+See the [database management](/influxdb/v1.6/administration/database_management/) and [continuous queries](/influxdb/v1.6/query_language/continuous_queries/) pages for a complete discussion of the commands listed above.
 
 User management:  
 &nbsp;&nbsp;&nbsp;◦&nbsp;&nbsp;&nbsp;Admin user management:  
