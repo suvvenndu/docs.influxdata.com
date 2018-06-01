@@ -34,7 +34,7 @@ Covers queries that are useful for viewing and exploring your
 See Schema Exploration for syntax explanations and examples of InfluxQL's `SHOW`
 queries.
 
-#### [Database management](/influxdb/v1.6/query_language/database_management/)
+#### [Database management](/influxdb/v1.6/administration/database_management/)
 
 Covers InfluxQL for managing
 [databases](/influxdb/v1.6/concepts/glossary/#database) and
