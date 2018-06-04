@@ -146,7 +146,7 @@ influxd backup -portable -db telegraf <path-to-backup>
 #### Backing up a database for a specified time interval
 
 ```
-influxd backup  -portable -db mytsd -start 2017-04-28T06:49:00Z -end 2017-04-28T06:50:00Z /tmp/backup/influxdb
+influxd backup -portable -db mytsd -start 2017-04-28T06:49:00Z -end 2017-04-28T06:50:00Z /tmp/backup/influxdb
 ```
 
 ## `restore`

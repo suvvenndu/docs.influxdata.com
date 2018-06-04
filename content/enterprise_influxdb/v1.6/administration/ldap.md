@@ -47,3 +47,20 @@ To use LDAP with InfluxDB Enterprise, you must:
       - `INFLUXDB_META_META_INTERNAL_SHARED_SECRET`, or the corresponding `[meta]` configuration setting `meta-internal-shared-secret`, is set to `true`. Default value is `false`. This value must be the same value as the meta node's `meta.internal-shared-secret`.
 
 ## Confirming LDAP connectivity
+
+
+After you have configured your LDAP connectivity for InfluxDB Enterprise, you can test the connectivity by following these steps:
+
+1. Run a quick test using `ldapsearch` to confirm your connectivity.
+
+```
+ldapsearch -p 3389 -w p@ssw0rd -x -D "CN=readonly admin,OU=Users,OU=enterprisead,DC=enterprisead,DC=example,DC=com" -h localhost -b 'OU=enterprisead,DC=enterprisead,DC=example,DC=com' '(&(CN=X_lastnames)(&(objectClass=group)))' 'member'
+```
+
+2. You should see a large block of test if everything ran correctly.
+
+3. To see a list of usernames available to you, you can run the following:
+
+```
+$ ./ldap-populator -seed 20180321 -format ids -usercount 250000 | head
+```
