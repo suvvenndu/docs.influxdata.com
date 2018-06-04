@@ -279,7 +279,7 @@ $ influx -format=json -pretty
 
 The import file has two sections:
 
-* **DDL (Data Definition Language)**: Contains the [InfluxQL commands](/influxdb/v1.6/query_language/database_management/) for creating the relevant [database](/influxdb/v1.6/concepts/glossary/) and managing the [retention policy](/influxdb/v1.6/concepts/glossary/#retention-policy-rp).
+* **DDL (Data Definition Language)**: Contains the [InfluxQL commands](/influxdb/v1.6/administration/database_management/) for creating the relevant [database](/influxdb/v1.6/concepts/glossary/) and managing the [retention policy](/influxdb/v1.6/concepts/glossary/#retention-policy-rp).
 If your database and retention policy already exist, your file can skip this section.
 * **DML (Data Manipulation Language)**: Lists the relevant database and (if desired) retention policy and contains the data in [line protocol](/influxdb/v1.6/concepts/glossary/#line-protocol).
 
@@ -469,6 +469,6 @@ For more information on InfluxQL, see:
 
 * [Data exploration](/influxdb/v1.6/query_language/data_exploration/)
 * [Schema exploration](/influxdb/v1.6/query_language/schema_exploration/)
-* [Database management](/influxdb/v1.6/query_language/database_management/)
+* [Database management](/influxdb/v1.6/administration/database_management/)
 * [Authentication and authorization](/influxdb/v1.6/administration/authentication_and_authorization/)
 * [InfluxQL reference](/influxdb/v1.6/query_language/spec/)

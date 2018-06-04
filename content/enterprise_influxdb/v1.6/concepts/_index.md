@@ -8,5 +8,5 @@ menu:
     weight: 50
 ---
 
-## [Clustering](/enterprise_influxdb/v1.6/concepts/clustering)
-## [Glossary](/enterprise_influxdb/v1.6/concepts/glossary/)
+## [Clustering in InfluxDB Enterprise](/enterprise_influxdb/v1.6/concepts/clustering)
+## [Glossary of terms](/enterprise_influxdb/v1.6/concepts/glossary/)

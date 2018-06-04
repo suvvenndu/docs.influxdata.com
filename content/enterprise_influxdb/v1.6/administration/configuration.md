@@ -851,6 +851,13 @@ See the [OSS documentation](/influxdb/v1.6/administration/config/#auth-enabled-f
 
 Environment variable: `INFLUXDB_HTTP_AUTH_ENABLED`
 
+###  realm = "InfluxDB"
+
+See the [OSS documentation](/influxdb/v1.6/administration/config/#realm-influxdb).
+
+Environment variable: `INFLUXDB_HTTP_REALM`
+
+
 ###  log-enabled = true
 
 See the [OSS documentation](/influxdb/v1.6/administration/config/#log-enabled-true).
@@ -887,6 +894,14 @@ See the [OSS documentation](/influxdb/v1.6/administration/config/#https-private-
 
 Environment variable: `INFLUXDB_HTTP_HTTPS_PRIVATE_KEY`
 
+###  shared-secret = ""
+
+See the [OSS documentation](/influxdb/v1.6/administration/config/#shared-secret).
+
+This setting is required and must match on each data node if the cluster is using the InfluxDB Enterprise Web Console.
+
+Environment variable: `INFLUXDB_HTTP_SHARED_SECRET`
+
 ###  max-row-limit = 0
 
 This limits the number of rows that can be returned in a non-chunked query.
@@ -900,20 +915,6 @@ Environment variable: `INFLUXDB_HTTP_MAX_ROW_LIMIT`
 See the [OSS documentation](/influxdb/v1.6/administration/config/#max-connection-limit-0).
 
 Environment variable: `INFLUXDB_HTTP_MAX_CONNECTION_LIMIT`
-
-###  shared-secret = ""
-
-See the [OSS documentation](/influxdb/v1.6/administration/config/#shared-secret).
-
-This setting is required and must match on each data node if the cluster is using the InfluxEnterprise Web Console.
-
-Environment variable: `INFLUXDB_HTTP_SHARED_SECRET`
-
-###  realm = "InfluxDB"
-
-See the [OSS documentation](/influxdb/v1.6/administration/config/#realm-influxdb).
-
-Environment variable: `INFLUXDB_HTTP_REALM`
 
 ### unix-socket-enabled = false
 Set to `true` to enable the http service over unix domain socket.
@@ -943,7 +944,7 @@ Environment variable: `INFLUXDB_HTTP_MAX_ENQUEUED_WRITE_LIMIT`
 
 The maximum duration for a write to wait in the queue to be processed.
 
-Default value of `0` disables the limit. If `max-concurrent-write-limit` is set to `0`, the `enqueued-write-timeout` is also disabled.
+Default value of `0` disables the limit. If `max-concurrent-write-limit` is set to `0`, the `enqueued-write-timeout` is ignored.
 
 Environment variable: `INFLUXDB_HTTP_ENQUEUED_WRITE_TIMEOUT`
 

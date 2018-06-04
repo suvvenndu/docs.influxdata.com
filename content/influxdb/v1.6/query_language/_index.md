@@ -34,15 +34,6 @@ Covers queries that are useful for viewing and exploring your
 See Schema Exploration for syntax explanations and examples of InfluxQL's `SHOW`
 queries.
 
-#### [Database management](/influxdb/v1.6/administration/database_management/)
-
-Covers InfluxQL for managing
-[databases](/influxdb/v1.6/concepts/glossary/#database) and
-[retention policies](/influxdb/v1.6/concepts/glossary/#retention-policy-rp) in
-InfluxDB.
-See Database Management for creating and dropping databases and retention
-policies as well as deleting and dropping data.
-
 #### [InfluxQL functions](/influxdb/v1.6/query_language/functions/)
 
 Covers all [InfluxQL functions](/influxdb/v1.6/query_language/functions/).

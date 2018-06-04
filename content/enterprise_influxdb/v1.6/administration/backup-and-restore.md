@@ -1,7 +1,7 @@
 ---
 title: Backing up and restoring in InfluxDB Enterprise
 aliases:
-    - /enterprise/v1.6/guides/backup-and-restore/
+    - /enterprise/v1.5/guides/backup-and-restore/
 menu:
   enterprise_influxdb_1_6:
     name: Backing up and restoring
@@ -278,7 +278,7 @@ Restored from my-incremental-backup/ in 66.715524ms, transferred 588800 bytes
 
 Your `telegraf` database was mistakenly dropped, but you have a recent backup so you've only lost a small amount of data.
 
-If [Telegraf](/telegraf/v1.5/) is still running, it will recreate the `telegraf` database shortly after the database is dropped.
+If [Telegraf](/telegraf/latest/) is still running, it will recreate the `telegraf` database shortly after the database is dropped.
 You might try to directly restore your `telegraf` backup just to find that you can't restore:
 
 ```

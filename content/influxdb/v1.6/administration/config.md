@@ -499,6 +499,12 @@ Determines whether HTTP request logging is enabled. Set to `false` to disable lo
 
 Environment variable: `INFLUXDB_HTTP_LOG_ENABLED`
 
+### `suppress-write-log = false`
+
+Determines whether the HTTP write request logs should be suppressed when the log is enabled.
+
+Environment variable: `INFLUXDB_HTTP_SUPPRESS_WRITE_LOG`
+
 ### `access-log-path = ""`
 
 Determines whether detailed write logging is enabled.
@@ -602,7 +608,7 @@ Environment variable: `INFLUXDB_HTTP_MAX_ENQUEUED_WRITE_LIMIT`
 
 The maximum duration for a write to wait in the queue to be processed.
 
-Default value of `0` disables the limit. If `max-concurrent-write-limit` is set to `0`, the `enqueued-write-timeout` is also disabled.
+Default value of `0` disables the limit. If `max-concurrent-write-limit` is set to `0`, the `enqueued-write-timeout` is ignored.
 
 Environment variable: `INFLUXDB_HTTP_ENQUEUED_WRITE_TIMEOUT`
 
