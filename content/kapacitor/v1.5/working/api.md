@@ -2317,7 +2317,7 @@ GET /kapacitor/v1/service-tests
 
 | Code | Meaning |
 | ---- | ------- |
-| 200  | Success |
+| `200`  | Success |
 
 
 ### Testing a service
@@ -2329,7 +2329,7 @@ The returned options are also the defaults.
 
 #### Example
 
-See available/default options for the slack service:
+See available or default options for the Slack service:
 
 ```
 GET /kapacitor/v1/service-tests/slack
@@ -2347,7 +2347,7 @@ GET /kapacitor/v1/service-tests/slack
 }
 ```
 
-Test the slack service integration using custom options:
+Test the Slack service integration using custom options:
 
 ```
 POST /kapacitor/v1/service-tests/slack
@@ -2378,17 +2378,17 @@ A failed response looks like:
 
 #### Response
 
-| Code | Meaning                                                                                         |
+| HTTP response status code | Meaning                                                                                         |
 | ---- | -------                                                                                         |
-| 200  | Success, even if the service under test fails a 200 is returned as the test complete correctly. |
+| `200 OK`  | Success, even if the service under test fails an HTTP response status code `200 OK` is returned as the test complete correctly. |
 
 
 ## Miscellaneous
 
 ### Ping
 
-You can 'ping' the Kapacitor server to validate you have a successful connection.
-A ping request does nothing but respond with a 204.
+You can `ping` the Kapacitor server to validate you have a successful connection.
+A ping request does nothing but respond with a HTTP response status code `204 No Content`.
 
 >NOTE: The Kapacitor server version is returned in the `X-Kapacitor-Version` HTTP header on all requests.
 Ping is a useful request if you simply need the verify the version of server you are talking to.
@@ -2401,9 +2401,9 @@ GET /kapacitor/v1/ping
 
 #### Response
 
-| Code | Meaning |
+| HTTP response status code | Meaning |
 | ---- | ------- |
-| 204  | Success |
+| 204 No Content  | Success |
 
 ### Sideload Reload
 
@@ -2417,12 +2417,12 @@ POST /kapacitor/v1/sideload/reload
 
 #### Response
 
-| Code | Meaning |
+| HTTP response status code | Meaning |
 | ---- | ------- |
-| 204  | Success |
+| 204 No Content | Success |
 
 
-### Debug Vars
+### Debug vars
 
 Kapacitor also exposes several statistics and information about its runtime.
 These can be accessed at the `/kapacitor/v1/debug/vars` endpoint.
@@ -2433,7 +2433,7 @@ These can be accessed at the `/kapacitor/v1/debug/vars` endpoint.
 GET /kapacitor/v1/debug/vars
 ```
 
-### Debug Pprof
+### Debug pprof (`/kapacitor/v1/debug/pprof/...`)
 
 Kapacitor also the standard Go [net/http/pprof](https://golang.org/pkg/net/http/pprof/) endpoints.
 
@@ -2445,7 +2445,7 @@ GET /kapacitor/v1/debug/pprof/...
 
 ### Routes
 
-Displays available routes for the API
+Displays available routes for the API.
 
 ```
 GET /kapacitor/v1/:routes
