@@ -337,8 +337,10 @@ Environment variable: `INFLUXDB_DATA_MAX_VALUES_PER_TAG`
 
 ### `tsm-use-madv-willneed = false`
 
-If `true`, then the MMap Advise value `MADV_WILLNEED` advises the kernel about how to handle the mapped memory region in terms of input/output paging and to expect access to the mapped memory region in the near future, with respect to TSM files. Because this setting has been problematic on some kernels (including CentOS and RHEL ), the default is `false`.
+If `true`, then the MMap Advise value `MADV_WILLNEED` advises the kernel about how to handle the mapped memory region in terms of input/output paging and to expect access to the mapped memory region in the near future, with respect to TSM files. Because this setting has been problematic on some kernels, the default is `false`.
 Changing the value to `true` might help users who have slow disks in some cases.
+
+> **Note:** This setting is not advised for RHEL/CentOS 6 and 7 releases. Doing so will double the memory consumption.
 
 Environment variable: `INFLUXDB_TSM_USE_MADV_WILLNEED`
 
