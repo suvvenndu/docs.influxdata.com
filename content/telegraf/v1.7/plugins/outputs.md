@@ -1,6 +1,6 @@
 ---
 title: Telegraf output plugins
-descriptions: Telegraf output plugins are used with the InfluxData time series platform to transform, decorate, and filter metrics. Supported output plugins include Datadog, Elasticsearch, Graphite, InfluxDB, Kafka, MQTT, Prometheus Client, Riemann, and Wavefront.
+descriptions: Telegraf output plugins are used with the InfluxData time series platform to write metrics to external destinations. Supported output plugins include Datadog, Elasticsearch, Graphite, InfluxDB, Kafka, MQTT, Prometheus Client, Riemann, and Wavefront.
 menu:
   telegraf_1_7:
     name: Output
@@ -8,7 +8,7 @@ menu:
     parent: Plugins
 ---
 
-Telegraf allows users to specify multiple output sinks in the configuration file.
+Telegraf output plugins write metrics to external destinations, depending on the plugins.
 
 > ***Note:*** Telegraf plugins added in the current release are noted with ` -- NEW in v1.7`.
 >The [Release notes and changelog](/telegraf/v1.7/about_the_project/release-notes-changelog) has a list of new plugins and updates for other plugins. See the plugin README files for more details.

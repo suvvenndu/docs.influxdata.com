@@ -8,9 +8,9 @@ menu:
     parent: Plugins
 ---
 
-Aggregator plugins typically emit new aggregate metrics, such as a running mean, minimum, maximum, quantiles, or standard deviation. For this reason, all aggregator plugins are configured with a `period`. The period is the size of the window of metrics that each aggregate represents. In other words, the emitted aggregate metric will be the aggregated value of the past period seconds. Since many users will only care about their aggregates and not every single metric gathered, there is also a drop_original argument, which tells Telegraf to only emit the aggregates and not the original metrics.
+Aggregator plugins typically create aggregate metrics, such as a running mean, minimum, maximum, quantiles, or standard deviation. For this reason, all _aggregator_ plugins are configured with a `period`. The period is the size of the window of metrics that each aggregate represents. In other words, the emitted _aggregate_ metric will be the aggregated value of the past period seconds. Since many users will only care about their aggregates and not every single metric gathered, there is also a drop_original argument, which tells Telegraf to only emit the aggregates and not the original metrics.
 
-NOTE That since aggregators only aggregate metrics within their period, that historical data is not supported. In other words, if your metric timestamp is more than `now() - period` in the past, it will not be aggregated.
+> **Note:** Since aggregators only aggregate metrics within their period, that historical data is not supported. In other words, if your metric timestamp is more than `now() - period` in the past, it will not be aggregated.
 
 > ***Note:*** Telegraf plugins added in the current release are noted with ` -- NEW in v1.7`.
 >The [Release notes and changelog](/telegraf/v1.7/about_the_project/release-notes-changelog) has a list of new plugins and updates for other plugins. See the plugin README files for more details.
