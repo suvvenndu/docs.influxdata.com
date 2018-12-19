@@ -789,7 +789,7 @@ The stress tool `influx_stress` will be removed in a subsequent release. We reco
 - CLI should use spaces for alignment, not tabs.
 - 0.12.2 InfluxDB CLI client PRECISION returns "Unknown precision...".
 - Fix parse key panic when missing tag value.
-- Rentention Policy should not allow `INF` or `0` as a shard duration.
+- Retention Policy should not allow `INF` or `0` as a shard duration.
 - Return Error instead of panic when decoding point values.
 - Fix slice out of bounds panic when pruning shard groups.
 - Drop database will delete /influxdb/data directory.

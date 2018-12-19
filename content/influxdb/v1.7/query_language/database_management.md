@@ -332,7 +332,7 @@ First, create the retention policy `what_is_time` with a `DURATION` of two days:
 >
 ```
 
-Modify `what_is_time` to have a three week `DURATION`, a 30 minute shard group duration, and  make it the `DEFAULT` retention policy for `NOAA_water_database`.
+Modify `what_is_time` to have a three week `DURATION`, a one hour shard group duration, and  make it the `DEFAULT` retention policy for `NOAA_water_database`.
 ```sql
 > ALTER RETENTION POLICY "what_is_time" ON "NOAA_water_database" DURATION 3w SHARD DURATION 30m DEFAULT
 >
