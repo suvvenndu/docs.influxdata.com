@@ -10,25 +10,25 @@ menu:
 
 
 * [Data node configurations](#data-node-configurations)
-    * [Global](#global-settings)
-    * [Enterprise license [enterprise]](#enterprise-license-settings)
-    * [Meta node `[meta]`](#meta-node-settings)
-    * [Data `[data]`](#data-settings)
-    * [Cluster `[cluster]`](#cluster-settings)
-    * [Retention `[retention]`](#retention-policy-settings)
-    * [Hinted Handoff `[hinted-handoff]`](#hinted-handoff-settings)
-    * [Anti-Entropy `[anti-entropy]`](#anti-entropy-ae-settings)
-    * [Shard precreation `[shard-precreation]`](#shard-precreation-settings)
-    * [Monitor `[monitor]`](#monitor-settings)
-    * [HTTP endpoints [http]](#http-endpoint-settings)
-    * [Logging [logging]](#logging-settings)
-    * [Subscriber [subscriber]](#subscriber-settings)
-    * [Graphite [graphite]](#graphite-settings)
-    * [Collectd [collectd]](#collectd-settings)
-    * [OpenTSDB [opentsdb]](#opentsdb-settings)
-    * [UDP [udp]](#udp-settings)
-    * [Continuous queries [continuous-queries]](#continuous-queries-settings)
-    * [TLS [tls]](#tls-settings)
+  * [Global](#global-settings)
+  * [Enterprise license [enterprise]](#enterprise-license-settings)
+  * [Meta node `[meta]`](#meta-node-settings)
+  * [Data `[data]`](#data-settings)
+  * [Cluster `[cluster]`](#cluster-settings)
+  * [Retention `[retention]`](#retention-policy-settings)
+  * [Hinted Handoff `[hinted-handoff]`](#hinted-handoff-settings)
+  * [Anti-Entropy `[anti-entropy]`](#anti-entropy-ae-settings)
+  * [Shard precreation `[shard-precreation]`](#shard-precreation-settings)
+  * [Monitor `[monitor]`](#monitor-settings)
+  * [HTTP endpoints [http]](#http-endpoint-settings)
+  * [Logging [logging]](#logging-settings)
+  * [Subscriber [subscriber]](#subscriber-settings)
+  * [Graphite [graphite]](#graphite-settings)
+  * [Collectd [collectd]](#collectd-settings)
+  * [OpenTSDB [opentsdb]](#opentsdb-settings)
+  * [UDP [udp]](#udp-settings)
+  * [Continuous queries [continuous-queries]](#continuous-queries-settings)
+  * [TLS [tls]](#tls-settings)
 
 
 ## Data node configurations
@@ -263,7 +263,7 @@ This setting does not apply to cache snapshotting.
 
 Environmental variable: `INFLUXDB_DATA_CACHE_MAX_CONCURRENT_COMPACTIONS`
 
-####  `compact-full-write-cold-duration = "4h"`
+#### `compact-full-write-cold-duration = "4h"`
 
 The duration at which the TSM engine will compact all TSM files in a shard if it hasn't received a write or delete.
 
