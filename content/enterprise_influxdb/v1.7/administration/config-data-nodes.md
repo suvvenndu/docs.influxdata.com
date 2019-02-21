@@ -1131,9 +1131,7 @@ Use the `SHOW DIAGNOSTICS` command to see the version of Go used to build Influx
 InfluxData recommends configuring your InfluxDB server's TLS settings for "modern compatibility" that provides a higher level of security and assumes that backward compatibility is not required.
 Our recommended TLS configuration settings for `ciphers`, `min-version`, and `max-version` are based on Mozilla's "modern compatibility" TLS server configuration described in [Security/Server Side TLS](https://wiki.mozilla.org/Security/Server_Side_TLS#Modern_compatibility).
 
-InfluxData's recommended TLS settings for "modern compatibility" are specified in the following configuration settings example.
-
-####
+#### Example of the recommended "modern compatibility" TLS settings
 
 ```toml
 ciphers = [ "TLS_ECDHE_ECDSA_WITH_CHACHA20_POLY1305",
@@ -1172,4 +1170,5 @@ Environment variable: `INFLUXDB_TLS_MAX_VERSION`
     > The more shards you have, the lower this should be set.
     > If AE is left enabled while lowering your `max-fetch`, you will initially see
     > higher CPU load as new shard digest files are created.
-    > The added load will drop off after shard digests are completed for existing shards. -->
+    > The added load will drop off after shard digests are completed for existing shards. 
+    -->
