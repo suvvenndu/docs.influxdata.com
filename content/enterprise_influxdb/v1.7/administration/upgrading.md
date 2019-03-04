@@ -8,9 +8,102 @@ menu:
     parent: Administration
 ---
 
-## Upgrading InfluxDB Enterprise 1.3.x-1.6.x clusters to 1.7.4 (rolling upgrade)
+The rolling online upgrade process for InfluxDB Enterprise provides minimal downtime (ideally zero). During this process, upgrade and restart one node at a time while other nodes continue to operate online. With a few exceptions, the cluster continues to works as though it were on the earlier version until all of the nodes are upgraded.
 
-### Step 0: Back up your cluster before upgrading to version 1.7.4.
+## Prerequisites
+
+### Download upgrade packages
+
+{{< tab-labels >}}
+{{% tabs %}}
+  [Ubuntu and Debian](#)
+  [RedHat and CentOS](#)
+{{% /tabs %}}
+
+{{< tab-content-container >}}
+
+{{% tab-content %}}
+
+#### Ubuntu and Debian (64-bit)
+
+##### Meta node package
+
+```shell
+wget https://dl.influxdata.com/enterprise/releases/influxdb-meta_1.7.4-c1.7.4_amd64.deb
+```
+
+##### Data node package
+
+```shell
+wget https://dl.influxdata.com/enterprise/releases/influxdb-data_1.7.4-c1.7.4_amd64.deb
+```
+
+{{% /tab-content %}}
+
+{{% tab-content %}}
+
+#### RedHat and CentOS (64-bit)
+
+##### Meta node package
+
+```shell
+wget https://dl.influxdata.com/enterprise/releases/influxdb-meta-1.7.4_c1.7.4.x86_64.rpm
+```
+
+##### Data node package
+
+```shell
+sudo yum localinstall influxdb-meta-1.7.4_c1.7.4.x86_64.rpm
+```
+
+{{% /tab-content %}}
+
+{{< /tab-content-container >}}
+{{< /tab-labels >}}
+
+### Back up the data
+
+Before upgrading your InfluxDB Enterprise cluster, back up your data, logs, and custom configurations.
+
+* Full database backups include server metadata (users, authorizations, and data).
+* Copy logs and configurations
+  * logs
+    * influxdb.log
+    * HTTP log (if redirected)
+  * configurations
+    * influxdb.conf
+    * influxdb-meta.conf
+    * environment variables
+
+
+## Rolling online upgrades
+
+### Step 1: Stop influxd service
+
+### Step 2: Delete _series directories
+
+### Step 3: Delete index directories
+
+### Step 4: Rebuild TSI indexes
+
+### Step 5: Restart influxd service
+
+
+## Offline upgrades
+
+1. Stop influx services on all nodes.
+2. ...
+3. ...
+4. ...
+5. Restart ...
+
+
+## Upgrading InfluxDB Enterprise 1.3.x-1.7.x clusters to 1.7.4 (rolling upgrade)
+
+InfluxData recommends upgrading your Enterprise cluster using the following "rolling upgrade" approach.
+Rolling upgrades are performed on live systems, prevent the need for downtime, and mimimize the impact on users.
+
+### Step 0: Back up your cluster before upgrading to version 1.7.4
 
 Create a full backup of your InfluxDB Enterprise cluster before performing an upgrade.
 If you have incremental backups created as part of your standard operating procedures, make sure to
@@ -23,39 +116,10 @@ trigger a final incremental backup before proceeding with the upgrade.
 
 Follow these steps to upgrade all meta nodes in your InfluxDB Enterprise cluster. Ensure that the meta cluster is healthy before proceeding to the data nodes.
 
-### Step 1: Download the 1.7.4 meta node package
 
-#### Meta node package download
+### Step 1: Install the 1.7.4 meta nodes package
 
-##### Ubuntu and Debian (64-bit)
-
-```bash
-wget https://dl.influxdata.com/enterprise/releases/influxdb-meta_1.7.4-c1.7.4_amd64.deb
-```
-
-##### RedHat and CentOS (64-bit)
-
-```bash
-wget https://dl.influxdata.com/enterprise/releases/influxdb-meta-1.7.4_c1.7.4.x86_64.rpm
-```
-
-### Step 2: Install the 1.7.4 meta nodes package
-
-#### Meta node package install
-
-##### Ubuntu and Debian (64-bit)
-
-```bash
-sudo dpkg -i influxdb-meta_1.7.4-c1.7.4_amd64.deb
-```
-
-##### RedHat and CentOS (64-bit)
-
-```bash
-sudo yum localinstall influxdb-meta-1.7.4_c1.7.4.x86_64.rpm
-```
-
-### Step 3: Restart the `influxdb-meta` service
+### Step 2: Restart the `influxdb-meta` service
 
 #### Meta node restart
 
@@ -117,10 +181,13 @@ wget https://dl.influxdata.com/enterprise/releases/influxdb-data-1.7.4_c1.7.4.x8
 
 ### Step 2: Remove the data node from the load balancer
 
-To avoid downtime and allow for a smooth transition, remove the data node you are upgrading from your
-load balancer **before** performing the remaining steps.
+To avoid downtime and allow for a smooth transition, remove the data node you are upgrading from your load balancer **before** performing the remaining steps.
 
-### Step 3: Install the 1.7.4 data node packages
+### Step 3: Remove all `_series` directories
+
+
+
+### Step 4: Install the 1.7.4 data node packages
 
 #### Data node package install
 
@@ -136,13 +203,13 @@ The configuration file will be updated with the necessary changes for version 1.
 sudo dpkg -i influxdb-data_1.7.4-c1.7.4_amd64.deb
 ```
 
-##### RedHat & CentOS (64-bit)
+##### RedHat and CentOS (64-bit)
 
 ```bash
 sudo yum localinstall influxdb-data-1.7.4_c1.7.4.x86_64.rpm
 ```
 
-### Step 4: Update the data node configuration file
+### Step 5: Update the data node configuration file
 
 > The first official Time Series Index (TSI) was released with InfluxDB v1.5.
 > Although you can install without enabling TSI, you are encouraged to begin leveraging the advantages the TSI disk-based indexing offers.
@@ -176,7 +243,7 @@ sudo yum localinstall influxdb-data-1.7.4_c1.7.4.x86_64.rpm
 
 The new configuration options are set to the default settings.
 
-### Step 5: [For TSI Preview instances only] Prepare your node to support Time Series Index (TSI).
+### Step 6: [For TSI Preview instances only] Prepare the dataa node to support Time Series Index (TSI).
 
 1. Delete all existing TSM-based shard `index` directories.
 
@@ -191,7 +258,7 @@ The new configuration options are set to the default settings.
 > **Note:** Run the `buildtsi` command using the user account that you are going to run the database as,
 > or ensure that the permissions match afterward.
 
-### Step 6: Restart the `influxdb` service.
+### Step 6: Restart the `influxdb` service
 
 #### Restart data node
 
