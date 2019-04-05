@@ -5,6 +5,15 @@ menu:
     parent: about_the_project
 ---
 
+## unreleased
+
+### Features
+- Add ability to skip SSL verification with an alert post event handler. 
+
+### Bugfixes
+- Use default transport consistently.
+- Fix deadlock in BarrierNode when delete is used.
+
 ## v1.5.2 [2018-12-12]
 
 ### Features
