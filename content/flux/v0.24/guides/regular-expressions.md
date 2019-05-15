@@ -59,7 +59,7 @@ from(bucket: "telegraf/autogen")
   |> range(start: -15m)
   |> filter(fn: (r) =>
     r._measurement == "mem" and
-    r._field =~ /_percent/
+    r._field !~ /_percent/
   )
 ```
 
